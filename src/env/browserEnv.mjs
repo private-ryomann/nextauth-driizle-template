@@ -1,6 +1,8 @@
-import {  envsafe } from 'envsafe';
+import { envsafe } from "envsafe";
 
-export const browserEnv = envsafe({
-}, {
-  strict: true
-})
+export const browserEnv = envsafe(
+	{},
+	{
+		strict: true,
+	},
+);
