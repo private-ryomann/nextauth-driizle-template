@@ -1,0 +1,47 @@
+name: nextjs_ci
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+  push:
+    branches:
+      - development
+
+  #手動実行
+  workflow_dispatch:
+
+# pushを複数回してしまった際に、古いワークフローをキャンセルする
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# リポジトリのリードのみ許可
+permissions:
+  contents: read
+
+jobs:
+  CI:
+    name: RUN LINT TEST BUILD
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository And Checkout Latest Commit Of Feature Branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Setup Node.js And Pnpm
+        uses: ./.github/actions/setup/node-with-pnpm
+        with:
+          node-version: "20.18.0"
+          working-directory: "."
+
+      - name: Run Lint By Biome
+        run: pnpm run lint
+
+      - name: Run Vitest
+        run: pnpm run test:run
+
+      - name: Run NextJs Build
+        run: pnpm run build

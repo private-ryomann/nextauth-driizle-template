@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  next-app:
+    container_name: next-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app/
+      - node_modules:/app/node_modules
+    ports:
+      - 3000:3000
+    tty: true
+    stdin_open: true
+
+volumes:
+  node_modules:

@@ -1,0 +1,44 @@
+name: "NextJs Deploy"
+on:
+  push:
+    branches:
+      - main
+
+  #手動実行
+  workflow_dispatch:
+# リポジトリのリードとデプロイ権限のみ許可
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  DEPLOY:
+    name: Deploy to Vercel
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository And Checkout Latest Commit Of Feature Branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Setup Node.js And Pnpm
+        uses: ./.github/actions/setup/node-with-pnpm
+        with:
+          node-version: "20.18.0"
+          working-directory: "."
+
+      - name: Run Lint By Biome
+        run: pnpm run lint
+
+      - name: Run Vitest
+        run: pnpm run test:run
+
+      - name: Run NextJs Build
+        run: pnpm run build
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
