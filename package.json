@@ -14,6 +14,9 @@
 		"check": "biome check --write ./src",
 		"test": "vitest",
 		"test:run": "vitest run",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate",
+		"db:seed": "tsx ./src/db/seed.ts",
 		"prepare": "husky"
 	},
 	"lint-staged": {
