@@ -17,6 +17,9 @@ importers:
       drizzle-orm:
         specifier: ^0.35.2
         version: 0.35.2(@neondatabase/serverless@0.10.1)(@types/pg@8.11.6)(@types/react@18.3.11)(react@18.3.1)
+      envsafe:
+        specifier: ^2.0.3
+        version: 2.0.3
       next:
         specifier: 14.2.14
         version: 14.2.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1310,6 +1313,10 @@ packages:
   environment@1.1.0:
     resolution: {integrity: sha512-xUtoPkMggbz0MPyPiIWr1Kp4aeWJjDZ6SMvURhimjdZgsRuDplF5/s9hcgGhyXMhs+6vpnuoiZ2kFiu3FMnS8Q==}
     engines: {node: '>=18'}
+
+  envsafe@2.0.3:
+    resolution: {integrity: sha512-51lek8h5btjXhXUDW//Pno7HPydM1WQzltOb1/ONRKdwB2QkfAURnN4Qn0cJ5LzGvX2Km1ReR2O3K3Bqq9sBMg==}
+    engines: {node: '>=10'}
 
   esbuild-register@3.6.0:
     resolution: {integrity: sha512-H2/S7Pm8a9CL1uhp9OvjwrBh5Pvx0H8qVOxNu8Wed9Y7qv56MPtq+GGM8RJpq6glYJn9Wspr8uw7l55uyinNeg==}
@@ -2943,6 +2950,8 @@ snapshots:
   entities@4.5.0: {}
 
   environment@1.1.0: {}
+
+  envsafe@2.0.3: {}
 
   esbuild-register@3.6.0(esbuild@0.19.12):
     dependencies:
