@@ -44,4 +44,6 @@ jobs:
         run: pnpm run test:run
 
       - name: Run NextJs Build
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: pnpm run build

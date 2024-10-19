@@ -28,7 +28,9 @@
 		"**/*.ts",
 		"**/*.tsx",
 		".next/types/**/*.ts",
-		"./vitest.setup.ts"
+		"./vitest.setup.ts",
+		"src/env/serverEnv.js", 
+		"src/env/browserEnv.js"
 	],
 	"exclude": ["node_modules"]
 }
