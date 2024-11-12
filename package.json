@@ -23,6 +23,7 @@
 		"**/*.{js,jsx,ts,tsx}": "pnpm run check"
 	},
 	"dependencies": {
+		"@auth/drizzle-adapter": "^1.7.3",
 		"@neondatabase/serverless": "^0.10.1",
 		"dotenv": "^16.4.5",
 		"drizzle-orm": "^0.35.2",
