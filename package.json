@@ -16,18 +16,19 @@
 		"test:run": "vitest run",
 		"db:generate": "drizzle-kit generate",
 		"db:migrate": "drizzle-kit migrate",
-		"db:seed": "tsx ./src/db/seed.ts",
 		"prepare": "husky"
 	},
 	"lint-staged": {
 		"**/*.{js,jsx,ts,tsx}": "pnpm run check"
 	},
 	"dependencies": {
+		"@auth/drizzle-adapter": "^1.7.3",
 		"@neondatabase/serverless": "^0.10.1",
 		"dotenv": "^16.4.5",
 		"drizzle-orm": "^0.35.2",
 		"envsafe": "^2.0.3",
 		"next": "14.2.14",
+		"next-auth": "5.0.0-beta.25",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1"
 	},
