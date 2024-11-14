@@ -49,3 +49,30 @@ GitHubActionsを使用。
 **CD**
 - CI
 - Vercelにデプロイ
+
+# その他
+
+## 認証
+NextAuthを使用して認証処理+セッション管理を行っています。
+
+- GoogleのOAuthに対応
+- SessionはDBで管理を行っている
+- DBにはNeonを使用
+- AdapterにはDrizzleを使用
+
+## コード最適化
+- vscodeの設定で保存時にBiomeでLint Formatを行う
+- huskyとlint-stagedを使用し、commit時にLint Formatを行いコード品質を担保
+- CI・CD時にLintを走らせる
+
+## 環境変数の読み込み
+- 環境変数に型定義を行えるように整備。(process.envで環境変数を取得する際にいちいちnullかどうかを判定する必要がなくなります)
+- 環境変数が不足している状態でNextJsサーバーを立ち上げられないようにする。
+
+## DB関連
+- Drizzle ORMを使用しています。
+  - コード(typescript)ベースでスキーマを管理
+  - マイグレーションファイルの作成・DBへのマイグレーションのコマンドも整備しています。
+ 
+## Test関連
+Vitest・React Testing Libraryを使用しています。
