@@ -1,5 +1,5 @@
 import { url, envsafe, str } from "envsafe";
-import { browserEnv } from "./browserEnv.mjs";
+import { browserEnv } from "./browserEnv";
 
 const serverEnv = {
 	...browserEnv,
