@@ -2,7 +2,7 @@ import { db } from "@/db";
 import { accounts } from "@/db/schemas/acounts";
 import { sessions } from "@/db/schemas/sessions";
 import { users } from "@/db/schemas/users";
-import serverEnv from "@/env/serverEnv.mjs";
+import serverEnv from "@/env/serverEnv";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
